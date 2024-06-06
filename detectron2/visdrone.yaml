@@ -1,0 +1,13 @@
+_BASE_: "detectron2/configs/Base-RCNN-FPN.yaml"
+MODEL:
+  WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
+  MASK_ON: False
+  RESNETS:
+    DEPTH: 50
+DATALOADER:
+  NUM_WORKERS: 2
+DATASETS:
+  TRAIN: ("visdrone-train",)
+  TEST: ("visdrone-val",)
+SOLVER:
+  MAX_ITER: 21000
